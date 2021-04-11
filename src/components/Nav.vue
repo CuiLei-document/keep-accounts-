@@ -1,8 +1,8 @@
 <template>
     <div class="nav">
-        <router-link to="/money">新手</router-link>|
-        <router-link to="/labels">入行</router-link>|
-        <router-link to="/statistics">前端</router-link>
+        <router-link to="/money">money</router-link>|
+        <router-link to="/labels">labels</router-link>|
+        <router-link to="/statistics">statistics</router-link>
     </div>
 </template>
 
