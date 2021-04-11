@@ -1,5 +1,7 @@
 <template>
-    <div>我是Labels.vue</div>
+    <div>我是Labels.vue
+        <Nav></Nav>
+    </div>
 </template>
 
 <script lang="ts">

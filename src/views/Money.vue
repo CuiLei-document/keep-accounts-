@@ -1,5 +1,9 @@
 <template>
-    <div>我是Money.vue</div>
+    <div>
+        我是Money.vue
+        <Nav></Nav>
+
+    </div>
 </template>
 
 <script lang="ts">
