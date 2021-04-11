@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="nav">
         <router-link to="/money">新手</router-link>|
         <router-link to="/labels">入行</router-link>|
         <router-link to="/statistics">前端</router-link>
@@ -13,5 +13,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .nav{
+        border: 1px solid red;
+    }
 </style>
