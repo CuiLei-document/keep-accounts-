@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-undef
+// import path from 'path'
 const path = require('path');
 module.exports = {
   lintOnSave: false,

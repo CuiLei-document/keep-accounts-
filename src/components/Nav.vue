@@ -24,6 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "~@/assets/style/reds.scss";
     nav{
         /*border: 1px solid red;*/
         display:flex;
@@ -43,7 +44,7 @@
             }
         }
         .item.selected{
-            color: blueviolet;
+            color: $color-highlight;
         }
     }
 </style>

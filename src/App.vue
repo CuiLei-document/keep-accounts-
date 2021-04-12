@@ -6,12 +6,14 @@
 </template>
 
 <style lang="scss">
- *{margin:0;padding:0;box-sizing: border-box}
+@import "~@/assets/style/reset.scss";
+@import "~@/assets/style/reds.scss";
   body{
     line-height: 1.5;
+    font-family: $font-hei;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #333;
   }
-  a{
-    text-decoration: none;
-    color: inherit;
-  }
+
 </style>

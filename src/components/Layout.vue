@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-layout">
+    <div class="layout-wrapper" :class="xxx">
         <div class="content">
             <slot></slot>
         </div>
@@ -9,12 +9,13 @@
 
 <script lang="ts">
     export default {
+      props:['xxx'],
         name: 'Layout'
     };
 </script>
 
 <style lang="scss" scoped>
-    .nav-layout{
+    .layout-wrapper{
         display: flex;
         flex-direction: column;
         height: 100vh;
