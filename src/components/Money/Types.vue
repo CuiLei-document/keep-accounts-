@@ -10,23 +10,37 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Types',
-  data() {
-    return {
-      type:'-' // ‘-’号表示指出 ‘+’ 号表示收入
-    }
-  },
-
-  methods:{
-    selectType(type){
-      if(type !== '-' && type !== '+'){
+  import Vue from 'vue'; // 引入 vue
+  import {Component,Prop} from 'vue-property-decorator'; // 告诉 typescript 一下是 vue 组件
+  @Component
+export default class Types extends Vue {
+    type = '-' // 只能是 '-' 和 '+' 对应的是 js 的 data 函数
+    @Prop(Number) xxx: number | undefined;
+    selectType(type: string) { // 对应的是 js 的 methods 里面的方法
+      if (type !== '-' && type !== '+') {
         throw new Error('type is unknown')
       }
       this.type = type
     }
+    mounted(){
+      console.log(this.xxx);
+    }
   }
-};
+  // name: 'Types',
+  // data() {
+  //   return {
+  //     type:'-' // ‘-’号表示指出 ‘+’ 号表示收入
+  //   }
+  // },
+  // methods:{
+  //   selectType(type){
+  //     if(type !== '-' && type !== '+'){
+  //       throw new Error('type is unknown')
+  //     }
+  //     this.type = type
+  //   }
+  // }
+
 </script>
 
 <style lang="scss" scoped>
