@@ -22,24 +22,8 @@ export default class Types extends Vue {
       }
       this.type = type
     }
-    mounted(){
-      console.log(this.xxx);
-    }
   }
-  // name: 'Types',
-  // data() {
-  //   return {
-  //     type:'-' // ‘-’号表示指出 ‘+’ 号表示收入
-  //   }
-  // },
-  // methods:{
-  //   selectType(type){
-  //     if(type !== '-' && type !== '+'){
-  //       throw new Error('type is unknown')
-  //     }
-  //     this.type = type
-  //   }
-  // }
+
 
 </script>
 
