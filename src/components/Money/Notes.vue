@@ -2,16 +2,24 @@
 <div>
   <div>
     <label class="notes">
+      {{value}}
       <span class="name">备注</span>
-      <input type="text" placeholder="请在这里输入备注">
+      <input type="text" :value="value"  @input="onInput" placeholder="请在这里输入备注">
     </label>
   </div>
 </div>
 </template>
 
 <script lang="ts">
-export default {
-name: "Notes"
+import Vue from 'vue';
+import {Component} from 'vue-property-decorator';
+@Component
+export default class Notes extends Vue{
+ value = ''
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  onInput(event: KeyboardEvent){
+    this.value = event.target.value
+  }
 }
 </script>
 
