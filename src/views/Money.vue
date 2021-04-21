@@ -16,13 +16,10 @@
     import Types from '@/components/Money/Types.vue';
     import {Component, Watch} from 'vue-property-decorator';
 
-    type Record = {
-      tags: string[]
-      notes: string
-      types: string
-      amount: number
-      createdAt: Date | undefined
-    }
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const model = require('@/model.js').model
+    console.log(model);
+
 
     @Component({
       components:{Types,Notes,Tags,NumberPad}
@@ -30,8 +27,9 @@
 
     export default class Money extends Vue  {
       tags = ['衣','食','住','行']
-      recordList : Record[] = JSON.parse(window.localStorage.getItem('recordList')|| '[]')
-      record: Record = {tags:[],notes:'',types:'-',amount:0}
+      recordList  = model.fetch()
+      // eslint-disable-next-line no-undef
+      record: RecordItem = {tags:[],notes:'',types:'-',amount:0};
       onUpdateTags(value:string[]){
         this.record.tags = value
       }
@@ -42,14 +40,15 @@
         this.record.amount = parseFloat(value) // 将字符串转换为浮点数 number
       }
       saveRecord(){
-        const record2: Record = JSON.parse(JSON.stringify(this.record))
+        // eslint-disable-next-line no-undef
+        const record2 = model.clone(this.record)
         record2.createdAt = new Date()
         this.recordList.push(record2)
         console.log(this.recordList);
       }
       @Watch('recordList')
       onRecordListChanged(){
-        window.localStorage.setItem('recordList',JSON.stringify(this.recordList))
+        model.save(this.recordList)
       }
     }
 </script>
