@@ -2,7 +2,7 @@
 <div>
   <div class="tags">
     <div class="new">
-      <button>新增标签</button>
+      <button @click="create">新增标签</button>
     </div>
     <ul class="current">
       <li v-for="tag in dataSource" :key="tag" @click="taggle(tag)"
@@ -17,7 +17,7 @@ import Vue from 'vue';
 import {Component,Prop} from 'vue-property-decorator';
 @Component
 export default class Tags extends Vue{
-  @Prop() dataSource:string[] | undefined;
+  @Prop(Array) dataSource:string[] | undefined;
   selectedTag:string[] =[]
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   taggle(tag:string){
@@ -27,7 +27,17 @@ export default class Tags extends Vue{
     }else{
      this.selectedTag.push(tag)
     }
+    this.$emit('update:value',this.selectedTag)
   }
+  create(){
+    const name = window.prompt('请输入添加的标签')
+    if(name === ''){
+      window.alert('标签不能为空')
+    }else if(this.dataSource){
+      this.$emit('update:dataSource',[...this.dataSource,name])
+    }
+  }
+
 }
 </script>
 
